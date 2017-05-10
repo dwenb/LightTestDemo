@@ -1,0 +1,42 @@
+
+<div id="stock" style="display:none;" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+    xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns="">
+    你好，这是stock的开始
+    <section class="main">
+        <!--盘口-->
+        <div class="top">
+            <div class="pankou flex">
+                <div class="price flex1 fs36">
+                    <span class="fs100 show mt10" v-bind:class="{'fc-green':realRES.px_change<0}">{{realRES.last_px}} [last_px]</span>
+                    <div class="mt20" v-bind;class="{'fc-green':realRES.px_change<0}">
+                        <em>{{realRES.px_change}}  [px_change]</em>
+                        <em class="ml10">{{realRES.px_change_rate}}%  [px_change_rate]</em>
+                    </div>
+                </div>
+                <div class="quote flex1">
+                    <div class="clearfix mt20">
+                        <div class="fleft ml20">
+                            <label>今开</label>
+                            <span>{{realRES.open_px}}  [open_px]</span>
+                        </div>
+                        <div class="fright mr20">
+                            <label>昨收</label>
+                            <span>{{realRES.preclose_px}}  [preclose_px]</span>
+                        </div>
+                    </div>
+                    <div class="clearfix mt15">
+                        <div class="fleft ml20">
+                            <label>成交量</label>
+                            <span>{{processNum(realRES.business_amount/100)}}手  [business_amount]</span>
+                        </div>
+                        <div class="fright mr20">
+                            <label>换手率</label>
+                            <span>{{realRES.turnover_ratio}}%  [turnover_ratio]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

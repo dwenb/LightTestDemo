@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no,email=no" name="format-detection">
+<link rel="apple-touch-icon-precomposed" href="favicon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="Keywords" content="">
+<meta name="description" content="">
+  <!-- build:css css/style.css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!--<link rel="stylesheet" href="css/reset.css"/>-->
+  <!--<link rel="stylesheet" href="css/index.css" />-->
+  <!-- endbuild -->
+
+  <title>LightTestDemo-Stock Simulated</title>
+</head>
+<body>
+  <div id="main">
+    
+<div id="LightTestDemo">
+    这是首页
+</div>
+
+    
+<div id="stock" style="display:none;" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns="">
+    你好，这是stock的开始
+    <section class="main">
+        <!--盘口-->
+        <div class="top">
+            <div class="pankou flex">
+                <div class="price flex1 fs36">
+                    <span class="fs100 show mt10" v-bind:class="{'fc-green':realRES.px_change<0}">{{realRES.last_px}} [last_px]</span>
+                    <div class="mt20" v-bind;class="{'fc-green':realRES.px_change<0}">
+                        <em>{{realRES.px_change}}  [px_change]</em>
+                        <em class="ml10">{{realRES.px_change_rate}}%  [px_change_rate]</em>
+                    </div>
+                </div>
+                <div class="quote flex1">
+                    <div class="clearfix mt20">
+                        <div class="fleft ml20">
+                            <label>今开</label>
+                            <span>{{realRES.open_px}}  [open_px]</span>
+                        </div>
+                        <div class="fright mr20">
+                            <label>昨收</label>
+                            <span>{{realRES.preclose_px}}  [preclose_px]</span>
+                        </div>
+                    </div>
+                    <div class="clearfix mt15">
+                        <div class="fleft ml20">
+                            <label>成交量</label>
+                            <span>{{processNum(realRES.business_amount/100)}}手  [business_amount]</span>
+                        </div>
+                        <div class="fright mr20">
+                            <label>换手率</label>
+                            <span>{{realRES.turnover_ratio}}%  [turnover_ratio]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+    
+<div id="news" style="display:none;"></div>
+
+  </div>
+  
+  <script type="text/javascript" src="https://res.lightyy.com/lighting/framework/light-1.2.min.js"></script>
+
+  <script type="text/javascript" src="config.js"></script>
+  <!-- build:js js/app.js -->
+  <script src="js/api/api.js"></script>
+  <script type="text/javascript" src="js/lib/chart.js"></script>
+  <!--<script src="vue-components.js"></script>-->
+  <!--<script type="text/javascript" src="js/lib/underscore.js"></script>-->
+  <script type='text/javascript' src='js/view/news.js'></script>
+<script type='text/javascript' src='js/view/stock.js'></script>
+<script type='text/javascript' src='js/view/LightTestDemo.js'></script>
+<script type='text/javascript' src='js/regist/index.js'></script>
+
+  <!-- endbuild -->
+
+  <script type="text/javascript">
+//    Light.start();
+    Light.ajax.getJSON("http://light.hscloud.cn/auth.json", function (data) {
+      console.log(data);
+      API.access_token = data.access_token;
+      Light.start();
+
+      Light.on("viewChanged", function () {
+          window.scrollTo(0,0)
+      })
+    })
+  </script>
+</body>
+</html>

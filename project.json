@@ -1,0 +1,7 @@
+{
+	"project":"LightTestDemo",
+	"version":"0.0.1",
+	"desc":"Stock Simulated",
+	"type":"light-1.0",
+	"plugins":["vue","less"]
+}
