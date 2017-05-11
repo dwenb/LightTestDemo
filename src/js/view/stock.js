@@ -80,7 +80,7 @@
                    // console.log("stock.js中的log \n");
                    // console.log(data);
                    data = data.data.snapshot;
-                   console.log(data);
+                   // console.log(data);
                    data.fields.forEach(function (v,k) {
                        res[v] = data[code][k];
                    });
@@ -120,8 +120,8 @@
         var that  = this;
         var code = that.stock_code;
         API.kline(code,type).then(function (quote) {
-            console.log("drawKLine");
-            console.log(quote);
+            // console.log("drawKLine");
+            // console.log(quote);
             var kdata = [];
             quote.data.candle[code].forEach(function(data){
                 kdata.push({
